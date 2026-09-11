@@ -208,6 +208,9 @@
     <div class="grid grid-3" style="margin-top:2.2rem">
       <article class="tarjeta rev">
         <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Cálculo 1 · binario</span>
+        <img src="assets/img/anim-inclinacion-binario.svg"
+             alt="Animación: la cápsula decide si el ángulo pasó el umbral (aplomo o caída)"
+             style="width:100%;max-width:230px;margin:0 auto .6rem;display:block">
         <h3 style="font-size:1.08rem">SW-520D · inclinación y caída</h3>
         <p><strong style="color:#fff">Qué mide:</strong> el ángulo del módulo respecto a la vertical. En su interior, una esfera metálica rueda dentro de la cápsula y cierra un circuito cuando se rebasa el ángulo de umbral; un potenciómetro ajusta ese límite.</p>
         <p style="margin-top:.7rem"><strong style="color:#fff">Cómo hace el cálculo:</strong> el ESP32 lee la salida digital <span style="font-family:var(--f-mono);color:var(--azul-200)">DO</span> con anti-rebote, cuenta las transiciones y compara cada lectura contra el umbral: una decisión binaria, «¿pasó el ángulo límite o no?». El resultado es estado de aplomo o de desplome.</p>
@@ -216,6 +219,9 @@
 
       <article class="tarjeta rev">
         <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Cálculo 2 · conteo de pulsos</span>
+        <img src="assets/img/anim-vibracion-pulsos.svg"
+             alt="Animación: el resorte tiembla, genera pulsos y el microcontrolador los cuenta por ventana"
+             style="width:100%;max-width:230px;margin:0 auto .6rem;display:block">
         <h3 style="font-size:1.08rem">SW-420 · golpe y trepidación</h3>
         <p><strong style="color:#fff">Qué mide:</strong> eventos súbitos de vibración. Un resorte metálico descansa sobre un contacto que normalmente está cerrado (<span style="font-family:var(--f-mono);color:var(--azul-200)">NC</span>); un golpe lo hace temblar y abre y cierra el contacto, generando pulsos en la salida <span style="font-family:var(--f-mono);color:var(--azul-200)">DO</span>.</p>
         <p style="margin-top:.7rem"><strong style="color:#fff">Cómo hace el cálculo:</strong> el microcontrolador captura cada pulso con una interrupción de borde y los cuenta por ventana de tiempo, por ejemplo pulsos por segundo. Si la tasa supera el umbral de trepidación, se registra el impacto y se dispara la captura rápida del MPU-6050 en el instante crítico.</p>
@@ -224,6 +230,9 @@
 
       <article class="tarjeta rev">
         <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Cálculo 3 · análisis espectral</span>
+        <img src="assets/img/anim-espectro-fft.svg"
+             alt="Animación: la FFT mide la frecuencia natural; el pico se corre a la izquierda cuando la rigidez baja"
+             style="width:100%;max-width:230px;margin:0 auto .6rem;display:block">
         <h3 style="font-size:1.08rem">MPU-6050 · vibración continua</h3>
         <p><strong style="color:#fff">Qué mide:</strong> aceleración en tres ejes y velocidad angular en tres ejes. Un chip MEMS que convierte el movimiento en señales analógicas, las digitaliza con su ADC y las entrega al ESP32 por <span style="font-family:var(--f-mono);color:var(--azul-200)">I²C</span>.</p>
         <p style="margin-top:.7rem"><strong style="color:#fff">Cómo hace el cálculo:</strong> muestrea la aceleración a una frecuencia estable, la multiplica por una ventana de Hanning de 1024 muestras y le aplica una FFT a bordo. Ubica el pico más alto: la frecuencia natural del primer modo. La compara contra la línea base de la estructura sana, compensada por temperatura. Si la frecuencia baja más allá del ruido esperado (umbral estadístico de 2σ), se diagnostica pérdida de rigidez.</p>

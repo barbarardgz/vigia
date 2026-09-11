@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" role="img" aria-label="Animación: la cápsula de inclinación decide si el ángulo pasó el umbral, una decisión binaria de 0 o 1">
+  <defs>
+    <linearGradient id="capi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8dc85"/>
+      <stop offset="1" stop-color="#c99b2e"/>
+    </linearGradient>
+  </defs>
+
+  <text x="130" y="40" fill="#9cc2ea" font-family="sans-serif" font-size="11" text-anchor="middle">¿pasó el ángulo de umbral?</text>
+
+  <!-- Cápsula que gira sobre su extremo izquierdo (el derecho baja al inclinarse) -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="0 55 94; 0 55 94; 30 55 94; 30 55 94; 0 55 94" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/>
+    <rect x="30" y="80" width="100" height="28" rx="7" fill="url(#capi)" stroke="#8a6313" stroke-width="1.6"/>
+    <rect x="104" y="84" width="6" height="16" rx="2" fill="#5a4210"/>
+    <rect x="116" y="84" width="6" height="16" rx="2" fill="#5a4210"/>
+    <line x1="126" y1="86" x2="126" y2="102" stroke="#8a6313" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Esfera que rueda hacia los contactos cuando baja el extremo derecho -->
+  <g>
+    <circle r="9" fill="#3f3f3f">
+      <animate attributeName="cx" values="80;80;118;118;80" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="94;94;98;98;94" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#9a9a9a">
+      <animate attributeName="cx" values="79;79;117;117;79" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <text x="130" y="132" fill="#b9c8da" font-family="sans-serif" font-size="10" text-anchor="middle">decisión binaria: 0 u 1</text>
+
+  <!-- LED aplomo (verde) -->
+  <g>
+    <circle cx="185" cy="158" r="7" fill="#2f9e44"><animate attributeName="opacity" values="1;1;.12;.12;1" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="185" cy="158" r="11" fill="rgba(47,158,68,.22)"><animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/></circle>
+    <text x="185" y="184" fill="#cfe3f7" font-family="sans-serif" font-size="9" text-anchor="middle">APLOMO</text>
+  </g>
+  <!-- LED caída (ámbar) -->
+  <g>
+    <circle cx="228" cy="158" r="7" fill="#e0a530"><animate attributeName="opacity" values=".12;.12;1;1;.12" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="228" cy="158" r="11" fill="rgba(224,165,48,.22)"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.3;.5;.8;1" dur="6s" repeatCount="indefinite"/></circle>
+    <text x="228" y="184" fill="#cfe3f7" font-family="sans-serif" font-size="9" text-anchor="middle">CAÍDA</text>
+  </g>
+</svg>

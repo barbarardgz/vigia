@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" role="img" aria-label="Animación: la vibración hace temblar el resorte, genera pulsos y el microcontrolador los cuenta por ventana de tiempo">
+  <defs>
+    <linearGradient id="capi2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8dc85"/>
+      <stop offset="1" stop-color="#c99b2e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Flechas de impacto -->
+  <g stroke="#e0a530" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M10 74 L22 74"><animate attributeName="opacity" values=".25;.25;1;.25;.25" keyTimes="0;.35;.5;.65;1" dur="1.2s" repeatCount="indefinite"/></path>
+    <path d="M12 94 L22 94"><animate attributeName="opacity" values=".25;.25;1;.25;.25" keyTimes="0;.35;.5;.65;1" dur="1.2s" begin=".6s" repeatCount="indefinite"/></path>
+  </g>
+
+  <!-- Sensor con resorte dentro -->
+  <rect x="24" y="64" width="72" height="40" rx="20" fill="url(#capi2)" stroke="#8a6313" stroke-width="1.6"/>
+  <text x="60" y="116" fill="rgba(255,233,170,.9)" font-family="sans-serif" font-size="8.5" text-anchor="middle" letter-spacing="1">SW-420</text>
+  <path fill="none" stroke="#5a4210" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <animate attributeName="d"
+             values="M34 84 q4 -9 8 0 q4 -9 8 0 q4 9 8 0 q4 9 8 0 q4 -9 8 0 q4 -9 8 0;M34 84 q4 -3 8 0 q4 -3 8 0 q4 3 8 0 q4 3 8 0 q4 -3 8 0 q4 -3 8 0"
+             keyTimes="0;.5" dur=".45s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Salida DO -->
+  <path d="M98 84 L116 84" stroke="#9cc2ea" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="118" y="76" fill="#9cc2ea" font-family="sans-serif" font-size="9" font-weight="700">DO</text>
+
+  <!-- Trazo de pulsos -->
+  <line x1="120" y1="128" x2="246" y2="128" stroke="rgba(255,255,255,.35)" stroke-width="1.4"/>
+  <g stroke="#9cc2ea" stroke-width="5" stroke-linecap="round">
+    <line x1="132" y1="128" x2="132" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin="0s" repeatCount="indefinite"/></line>
+    <line x1="148" y1="128" x2="148" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin=".24s" repeatCount="indefinite"/></line>
+    <line x1="164" y1="128" x2="164" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin=".48s" repeatCount="indefinite"/></line>
+    <line x1="180" y1="128" x2="180" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin=".72s" repeatCount="indefinite"/></line>
+    <line x1="196" y1="128" x2="196" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin=".96s" repeatCount="indefinite"/></line>
+    <line x1="212" y1="128" x2="212" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin="1.2s" repeatCount="indefinite"/></line>
+    <line x1="228" y1="128" x2="228" y2="102"><animate attributeName="opacity" values=".12;.12;1;.12;.12" keyTimes="0;.15;.3;.5;1" dur="1.7s" begin="1.44s" repeatCount="indefinite"/></line>
+  </g>
+
+  <!-- Barra de conteo -->
+  <rect x="120" y="148" width="0" height="10" rx="3" fill="#5b93d4">
+    <animate attributeName="width" values="0;0;22;62;98;120" keyTimes="0;.3;.5;.7;.88;1" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <line x1="244" y1="144" x2="244" y2="162" stroke="#e0a530" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <text x="244" y="172" fill="#e0a530" font-family="sans-serif" font-size="8" text-anchor="middle">umbral</text>
+  <text x="130" y="176" fill="#b9c8da" font-family="sans-serif" font-size="9" text-anchor="middle">pulsos contados</text>
+
+  <!-- Alerta -->
+  <text x="176" y="40" fill="#e0a530" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">
+    impacto → guardar MPU-6050
+    <animate attributeName="opacity" values="0;0;0;1;1;0" keyTimes="0;.5;.6;.75;.85;1" dur="6s" repeatCount="indefinite"/>
+  </text>
+</svg>
