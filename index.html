@@ -198,71 +198,44 @@
 <!-- ============================= CÓMO FUNCIONA ============================= -->
 <section class="seccion" id="solucion">
   <div class="contenedor">
-    <p class="etiqueta rev">02 · El criterio físico</p>
-    <h2 class="titulo-seccion rev">Cómo se detecta un daño que todavía no se ve</h2>
+    <p class="etiqueta rev">02 · El cálculo de cada sensor</p>
+    <h2 class="titulo-seccion rev">Cómo funciona cada sensor y cómo calcula el daño</h2>
     <p class="bajada rev">
-      Toda la propuesta descansa sobre una relación de física elemental. Es lo que separa un sensor con
-      chicharra de un sistema de diagnóstico.
+      Toda la propuesta descansa sobre tres cálculos distintos que terminan en la misma pregunta: ¿cambió la
+      firma mecánica de la estructura? Cada sensor responde con una pieza de esa respuesta.
     </p>
 
-    <div class="grid grid-2" style="margin-top:2.4rem;align-items:center">
-      <div class="rev">
-        <div class="tarjeta" style="padding:2rem 1.8rem">
-          <svg viewBox="0 0 300 84" style="width:100%;max-width:300px;margin:.2rem auto 1.3rem;display:block" role="img" aria-label="Fórmula: f es proporcional a la raíz cuadrada de k entre m">
-            <text x="60" y="52" font-family="Barlow Condensed, sans-serif" font-size="46" fill="#fff" text-anchor="end" font-style="italic">f</text>
-            <text x="98" y="50" font-family="Barlow Condensed, sans-serif" font-size="32" fill="#5b93d4" text-anchor="middle">&#8733;</text>
-            <path d="M122 34 L130 34 L138 62 L150 12 L232 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-            <text x="191" y="38" font-family="Barlow Condensed, sans-serif" font-size="34" fill="#fff" text-anchor="middle" font-style="italic">k</text>
-            <line x1="160" y1="46" x2="222" y2="46" stroke="#5b93d4" stroke-width="2"/>
-            <text x="191" y="74" font-family="Barlow Condensed, sans-serif" font-size="34" fill="#fff" text-anchor="middle" font-style="italic">m</text>
-          </svg>
-          <p style="color:var(--txt-2);font-size:.95rem">
-            La frecuencia natural de vibración <b style="color:#fff">f</b> de una estructura depende de su
-            rigidez <b style="color:#fff">k</b> y su masa <b style="color:#fff">m</b>.
-          </p>
-          <p style="color:var(--txt-2);font-size:.95rem;margin-bottom:0">
-            Cuando un elemento se agrieta, se afloja o se corroe, la rigidez <b style="color:#fff">k</b> baja.
-            La masa <b style="color:#fff">m</b> prácticamente no cambia. Por lo tanto la frecuencia natural
-            <b style="color:var(--azul-200)">baja de forma medible</b>, muchas veces antes de que exista
-            daño visible a simple vista.
-          </p>
-        </div>
-      </div>
+    <div class="grid grid-3" style="margin-top:2.2rem">
+      <article class="tarjeta rev">
+        <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Cálculo 1 · binario</span>
+        <h3 style="font-size:1.08rem">SW-520D · inclinación y caída</h3>
+        <p><strong style="color:#fff">Qué mide:</strong> el ángulo del módulo respecto a la vertical. En su interior, una esfera metálica rueda dentro de la cápsula y cierra un circuito cuando se rebasa el ángulo de umbral; un potenciómetro ajusta ese límite.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Cómo hace el cálculo:</strong> el ESP32 lee la salida digital <span style="font-family:var(--f-mono);color:var(--azul-200)">DO</span> con anti-rebote, cuenta las transiciones y compara cada lectura contra el umbral: una decisión binaria, «¿pasó el ángulo límite o no?». El resultado es estado de aplomo o de desplome.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Qué detecta:</strong> la caída, el desaplomo y la diagonal que se afloja y cuelga antes de que la vibración cambie.</p>
+      </article>
 
-      <div class="rev">
-        <h3 style="font-size:1.35rem">Del sensado al diagnóstico</h3>
-        <ol style="color:var(--txt-2);padding-left:1.2rem;font-size:.95rem;line-height:1.72">
-          <li>El nodo <strong style="color:#fff">muestrea</strong> la vibración, la inclinación y la caída con sensores MEMS dedicados.</li>
-          <li>Se calcula la <strong style="color:#fff">frecuencia natural</strong> de la estructura con una FFT a bordo.</li>
-          <li>Se <strong style="color:#fff">compara</strong> contra una línea base medida en la estructura sana, compensada por temperatura.</li>
-          <li>Si las frecuencias o la inclinación cambian más allá del ruido esperado, se genera <strong style="color:var(--azul-200)">alerta y diagnóstico temprano</strong>.</li>
-          <li>La comparación de varios modos y sensores permite señalar <strong style="color:#fff">qué zona de la estructura</strong> cambió.</li>
-        </ol>
-        <p style="color:var(--txt-2);font-size:.95rem">
-          El paso 5 es la diferencia entre una alarma y un diagnóstico. No dice «algo pasa»: dice
-          <em>«la diagonal D4 perdió rigidez aproximadamente un 22 por ciento»</em>.
-        </p>
-      </div>
+      <article class="tarjeta rev">
+        <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Cálculo 2 · conteo de pulsos</span>
+        <h3 style="font-size:1.08rem">SW-420 · golpe y trepidación</h3>
+        <p><strong style="color:#fff">Qué mide:</strong> eventos súbitos de vibración. Un resorte metálico descansa sobre un contacto que normalmente está cerrado (<span style="font-family:var(--f-mono);color:var(--azul-200)">NC</span>); un golpe lo hace temblar y abre y cierra el contacto, generando pulsos en la salida <span style="font-family:var(--f-mono);color:var(--azul-200)">DO</span>.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Cómo hace el cálculo:</strong> el microcontrolador captura cada pulso con una interrupción de borde y los cuenta por ventana de tiempo, por ejemplo pulsos por segundo. Si la tasa supera el umbral de trepidación, se registra el impacto y se dispara la captura rápida del MPU-6050 en el instante crítico.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Qué detecta:</strong> impactos, caídas de elementos y golpes de tráfico pesado que anteceden o acompañan a un daño.</p>
+      </article>
+
+      <article class="tarjeta rev">
+        <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Cálculo 3 · análisis espectral</span>
+        <h3 style="font-size:1.08rem">MPU-6050 · vibración continua</h3>
+        <p><strong style="color:#fff">Qué mide:</strong> aceleración en tres ejes y velocidad angular en tres ejes. Un chip MEMS que convierte el movimiento en señales analógicas, las digitaliza con su ADC y las entrega al ESP32 por <span style="font-family:var(--f-mono);color:var(--azul-200)">I²C</span>.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Cómo hace el cálculo:</strong> muestrea la aceleración a una frecuencia estable, la multiplica por una ventana de Hanning de 1024 muestras y le aplica una FFT a bordo. Ubica el pico más alto: la frecuencia natural del primer modo. La compara contra la línea base de la estructura sana, compensada por temperatura. Si la frecuencia baja más allá del ruido esperado (umbral estadístico de 2σ), se diagnostica pérdida de rigidez.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Qué detecta:</strong> el daño oculto: la frecuencia natural cae antes de que la grieta sea visible.</p>
+      </article>
     </div>
 
-    <div class="grid grid-4" style="margin-top:2.4rem">
-      <article class="tarjeta rev">
-        <h3 style="font-size:1.05rem">1 · Sensar</h3>
-        <p>Acelerómetros MEMS y celdas de carga muestreando a frecuencia estable, con temporizador de hardware.</p>
-      </article>
-      <article class="tarjeta rev">
-        <h3 style="font-size:1.05rem">2 · Procesar en el borde</h3>
-        <p>FFT a bordo del ESP32 en ventanas de 1024 muestras con ventaneo de Hanning. Sin depender de la nube.</p>
-      </article>
-      <article class="tarjeta rev">
-        <h3 style="font-size:1.05rem">3 · Comparar</h3>
-        <p>Contraste contra una línea base compensada por temperatura, con umbrales estadísticos de 2σ y 3σ.</p>
-      </article>
-      <article class="tarjeta rev">
-        <h3 style="font-size:1.05rem">4 · Diagnosticar</h3>
-        <p>Calibración inversa del modelo y coloreado del elemento afectado sobre la representación tridimensional.</p>
-      </article>
-    </div>
+    <p class="nota rev">
+      Un sensor con chicharra avisa cuando el daño ya se ve. Uno que calcula, avisa antes: la decisión
+      binaria del SW-520D, el conteo de pulsos del SW-420 y el espectro del MPU-6050 dan la misma
+      respuesta temprana con tres pruebas distintas.
+    </p>
   </div>
 </section>
 
