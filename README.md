@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  InnovaTecNM 2026 · Instituto Tecnológico de Chihuahua II · Folio 68283-17
+  InnovaTecNM 2026 · Instituto Tecnológico de Chihuahua II
 </p>
 
 ---
