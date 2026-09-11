@@ -114,23 +114,7 @@ validación 9.4 del dossier.
 
 Diagnóstico **demostrado empíricamente**: el modelo recalibrado contra la medición señala qué
 elemento perdió rigidez y en qué proporción. Los siguientes horizontes (predictivo,
-prescriptivo, autónomo) se presentan como ruta, no como capacidad actual. Las limitaciones
-del método (baja sensibilidad al daño local pequeño, dependencia de la temperatura, no
-unicidad de la solución inversa, necesidad de línea base) están declaradas en la propia
-página, con su estrategia de mitigación.
-
-## Equipo
-
-| Integrante | Carrera |
-|---|---|
-| Liliana Edith Sáenz López | Arquitectura |
-| David Santiago López González | Arquitectura |
-| Abil Valentina Sandoval Lugo | Arquitectura |
-| Vanessa Joselyn Lerma Flores | Ing. en Gestión Empresarial |
-| Barbara Valeria Rodríguez Galván | Ing. en Ciberseguridad |
-
-**Asesores:** Héctor Ramón Flores Bernal · José Antonio García Escudero
-(Instituto Tecnológico de Chihuahua II)
+prescriptivo, autónomo) se presentan como ruta, no como capacidad actual.
 
 ## Notas
 
