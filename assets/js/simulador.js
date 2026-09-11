@@ -1,5 +1,5 @@
 /* ============================================================
-   VIGÍA SHM — Simulador de gemelo digital
+   VIGÍA SHM — Simulador del sistema de monitoreo
    ------------------------------------------------------------
    Reproduce, de forma didáctica, el ciclo descrito en el dossier:
      estructura física → sensor → modelo → calibración → diagnóstico
@@ -79,7 +79,7 @@
        GAMMA — el apoyo fijo de un extremo y el móvil del otro hacen que
                cada modo se «recargue» de distinta forma a lo largo del claro.
        FIRMA — cada barra tiene su propio par de apriete y su propia masa
-               de instrumentación. Un modelo ideal no lo sabe; un gemelo
+               de instrumentación. Un modelo ideal no lo sabe; un modelo
                calibrado contra la maqueta real, sí. Es justamente lo que
                determina la calibración de la fase 2.                        */
   const MODOS = 4;
@@ -547,7 +547,7 @@
   }
 
   function pintarDiagnostico(diag, ev, f1c) {
-    let html = '<h4>Diagnóstico del gemelo digital</h4>';
+    let html = '<h4>Diagnóstico del sistema</h4>';
 
     if (!diag.hallazgos.length) {
       html += '<p class="veredicto">El modelo calibrado reproduce la medición sin necesidad de reducir ' +

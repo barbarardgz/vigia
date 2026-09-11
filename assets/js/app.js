@@ -101,22 +101,6 @@
     });
   });
 
-  /* ---------- Niveles de madurez ---------- */
-  $$('.nivel').forEach(n => {
-    n.addEventListener('click', () => {
-      const det = document.getElementById(n.getAttribute('aria-controls'));
-      const abierto = n.getAttribute('aria-expanded') === 'true';
-      $$('.nivel').forEach(o => {
-        o.setAttribute('aria-expanded', 'false');
-        document.getElementById(o.getAttribute('aria-controls')).classList.remove('abierto');
-      });
-      if (!abierto) {
-        n.setAttribute('aria-expanded', 'true');
-        det.classList.add('abierto');
-      }
-    });
-  });
-
   /* ---------- Línea de tiempo de fases ---------- */
   $$('.fase__btn').forEach(b => {
     b.addEventListener('click', () => {

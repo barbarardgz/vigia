@@ -17,8 +17,8 @@
 
 ## Qué es
 
-VIGÍA SHM instrumenta puentes con sensores de bajo costo y mantiene un **gemelo digital
-calibrado** de la estructura. La diferencia con un sistema de telemetría es el diagnóstico:
+VIGÍA SHM instrumenta puentes con sensores de bajo costo que **vigilan vibración, inclinación y
+caída** en tiempo real. La diferencia con un sistema de telemetría es el diagnóstico:
 no dice «algo pasa», dice *qué elemento perdió rigidez y en qué proporción*.
 
 El criterio físico es la relación entre rigidez y frecuencia natural:
@@ -31,10 +31,20 @@ Cuando un elemento se agrieta, se afloja o se corroe, la rigidez **k** baja y la
 prácticamente no cambia. La frecuencia natural baja de forma medible, muchas veces antes de
 que exista daño visible a simple vista.
 
+## Sensores del prototipo
+
+El nodo integra tres módulos:
+
+| Sensor | Función |
+|---|---|
+| **SW-520D** — módulo sensor de inclinación (Tecneu) | Detecta inclinación y caída: una esfera metálica cierra el circuito cuando el módulo se inclina más allá de un umbral ajustable |
+| **SW-420** — módulo sensor de vibración NC | Detecta vibración súbita o trepidación: un resorte hace y rompe contacto y genera pulsos contables |
+| **MPU-6050** — acelerómetro y giróscopo de 3 ejes | Monitoreo avanzado de 6 grados de libertad: aceleración lineal, velocidad angular y orientación vía I²C
+
 ## El sitio
 
-Este repositorio contiene la página del proyecto, con un **simulador interactivo del gemelo
-digital**: se puede aflojar cualquier diagonal de una armadura instrumentada, cambiar la
+Este repositorio contiene la página del proyecto, con un **simulador interactivo del sistema**:
+se puede aflojar cualquier diagonal de una armadura instrumentada, cambiar la
 temperatura ambiente y ver cómo el sistema distingue una cosa de la otra.
 
 ### Cómo verlo
@@ -52,12 +62,13 @@ El archivo `.nojekyll` ya está incluido para que Pages sirva los directorios ta
 ## Estructura
 
 ```
-index.html                    Página completa (una sola vista, doce secciones)
+index.html                    Página completa (una sola vista)
 assets/
   css/estilos.css             Identidad visual: navy #0E1B2B, azul acero #28528C
-  js/app.js                   Navegación, pestañas, línea de tiempo, calculadora
-  js/simulador.js             Simulador del gemelo digital (modelo directo + inverso)
+  js/app.js                   Navegación, pestañas, línea de tiempo
+  js/simulador.js             Simulador del sistema (modelo directo + inverso)
   img/logo-vigia.jpeg         Logotipo de la marca
+  img/sensor-*.svg            Ilustraciones de los sensores del nodo
 docs/
   VIGIA_dossier_estatal.md    Dossier técnico para la etapa estatal
   memoria-etapa-local.pdf     Memoria del proyecto, etapa local
@@ -101,11 +112,12 @@ validación 9.4 del dossier.
 
 ## Alcance declarado
 
-Nivel **2 de madurez de gemelo digital** —diagnóstico— demostrado empíricamente. Los niveles
-3 a 5 se presentan como ruta, no como capacidad actual. Las limitaciones del método (baja
-sensibilidad al daño local pequeño, dependencia de la temperatura, no unicidad de la solución
-inversa, necesidad de línea base) están declaradas en la propia página, con su estrategia de
-mitigación.
+Diagnóstico **demostrado empíricamente**: el modelo recalibrado contra la medición señala qué
+elemento perdió rigidez y en qué proporción. Los siguientes horizontes (predictivo,
+prescriptivo, autónomo) se presentan como ruta, no como capacidad actual. Las limitaciones
+del método (baja sensibilidad al daño local pequeño, dependencia de la temperatura, no
+unicidad de la solución inversa, necesidad de línea base) están declaradas en la propia
+página, con su estrategia de mitigación.
 
 ## Equipo
 
@@ -122,6 +134,5 @@ mitigación.
 
 ## Notas
 
-Las cifras de costo son estimaciones de orden de magnitud y conviene cotizarlas antes de
-presentarlas. Las referencias normativas y los casos de campo citados deben verificarse en
+Las referencias normativas y los casos de campo citados deben verificarse en
 fuente primaria antes de citarse en público.

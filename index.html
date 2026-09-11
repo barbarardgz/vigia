@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VIGÍA SHM — Gemelo digital para monitoreo de salud estructural</title>
-<meta name="description" content="VIGÍA SHM es un sistema de monitoreo de salud estructural para puentes: sensores de bajo costo, procesamiento en el borde y un gemelo digital calibrado que no solo detecta el daño, lo localiza. InnovaTecNM 2026 · Instituto Tecnológico de Chihuahua II.">
+<title>VIGÍA SHM — Monitoreo de salud estructural de puentes</title>
+<meta name="description" content="VIGÍA SHM es un sistema de monitoreo de salud estructural para puentes: sensores de bajo costo que vigilan vibración, inclinación y caída, procesamiento en el borde y diagnóstico temprano del daño. InnovaTecNM 2026 · Instituto Tecnológico de Chihuahua II.">
 <meta name="author" content="Equipo VIGÍA — Instituto Tecnológico de Chihuahua II">
 <meta name="theme-color" content="#0e1b2b">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="VIGÍA SHM — Gemelo digital para monitoreo de salud estructural">
+<meta property="og:title" content="VIGÍA SHM — Monitoreo de salud estructural de puentes">
 <meta property="og:description" content="Las estructuras hablan. VIGÍA las escucha antes del desastre.">
 <meta property="og:image" content="assets/img/logo-vigia.jpeg">
 
@@ -34,7 +34,7 @@
         <li><a href="#problema">Problema</a></li>
         <li><a href="#solucion">Cómo funciona</a></li>
         <li><a href="#simulador">Simulador</a></li>
-        <li><a href="#gemelo">Gemelo digital</a></li>
+        <li><a href="#sensores">Sensores</a></li>
         <li><a href="#prototipo">Prototipo</a></li>
         <li><a href="#ruta">Ruta</a></li>
         <li><a href="#negocio">Negocio</a></li>
@@ -62,8 +62,8 @@
         <p class="portada__lema">La inteligencia que protege estructuras antes del desastre.</p>
         <p class="portada__texto">
           Un sistema de monitoreo de salud estructural que instrumenta puentes con sensores de bajo costo
-          y mantiene un <strong>gemelo digital calibrado</strong> de la estructura. No dice «algo pasa»:
-          dice <em>qué elemento perdió rigidez y en qué proporción</em>.
+          que <strong>vigilan vibración, inclinación y caída</strong> en tiempo real. No dice «algo pasa»:
+          detecta y localiza el daño antes de que sea visible.
         </p>
         <div class="portada__acciones">
           <a class="boton boton--primario" href="#simulador">Probar el simulador en vivo &rarr;</a>
@@ -132,7 +132,7 @@
     <div class="cifras">
       <div class="cifra"><b data-contar="24" data-suf="/7">0</b><span>Monitoreo continuo frente a inspección visual periódica</span></div>
       <div class="cifra"><b data-contar="4">0</b><span>Modos de vibración medidos para localizar el daño</span></div>
-      <div class="cifra"><b data-contar="2" data-pre="Nivel ">0</b><span>De madurez de gemelo digital: diagnóstico</span></div>
+      <div class="cifra"><b data-contar="3">0</b><span>Tipos de sensores integrados en el nodo</span></div>
     </div>
   </div>
 </section>
@@ -233,17 +233,17 @@
       </div>
 
       <div class="rev">
-        <h3 style="font-size:1.35rem">El ciclo cerrado del gemelo digital</h3>
+        <h3 style="font-size:1.35rem">Del sensado al diagnóstico</h3>
         <ol style="color:var(--txt-2);padding-left:1.2rem;font-size:.95rem;line-height:1.72">
-          <li>Se construye un <strong style="color:#fff">modelo estructural</strong> con las rigideces estimadas de diseño.</li>
-          <li>Se miden las frecuencias naturales reales de la estructura sana. Casi nunca coinciden con el modelo.</li>
-          <li>Se <strong style="color:#fff">calibra</strong> el modelo ajustando rigideces hasta que sus predicciones coincidan con la medición. Ese modelo calibrado es la línea base: el gemelo.</li>
-          <li>Se sigue midiendo en operación. Si las frecuencias cambian más allá del ruido esperado, se recalibra.</li>
-          <li>Se observa <strong style="color:var(--azul-200)">cuál parámetro tuvo que bajar</strong> para explicar el cambio. Ese parámetro señala la zona probable del daño.</li>
+          <li>El nodo <strong style="color:#fff">muestrea</strong> la vibración, la inclinación y la caída con sensores MEMS dedicados.</li>
+          <li>Se calcula la <strong style="color:#fff">frecuencia natural</strong> de la estructura con una FFT a bordo.</li>
+          <li>Se <strong style="color:#fff">compara</strong> contra una línea base medida en la estructura sana, compensada por temperatura.</li>
+          <li>Si las frecuencias o la inclinación cambian más allá del ruido esperado, se genera <strong style="color:var(--azul-200)">alerta y diagnóstico temprano</strong>.</li>
+          <li>La comparación de varios modos y sensores permite señalar <strong style="color:#fff">qué zona de la estructura</strong> cambió.</li>
         </ol>
         <p style="color:var(--txt-2);font-size:.95rem">
           El paso 5 es la diferencia entre una alarma y un diagnóstico. No dice «algo pasa»: dice
-          <em>«la rigidez de la diagonal D4 bajó aproximadamente un 22 por ciento»</em>.
+          <em>«la diagonal D4 perdió rigidez aproximadamente un 22 por ciento»</em>.
         </p>
       </div>
     </div>
@@ -273,7 +273,7 @@
 <section class="seccion seccion--alt" id="simulador">
   <div class="contenedor">
     <p class="etiqueta rev">03 · Demostración interactiva</p>
-    <h2 class="titulo-seccion rev">Afloje una diagonal y observe qué hace el gemelo</h2>
+    <h2 class="titulo-seccion rev">Afloje una diagonal y observe cómo responde el sistema</h2>
     <p class="bajada rev">
       Esta es la demostración que el equipo lleva ante el jurado, reproducida en el navegador. Mueva la
       rigidez de cualquier diagonal, cambie la temperatura ambiente y observe cómo el sistema distingue
@@ -375,111 +375,49 @@
   </div>
 </section>
 
-<!-- ============================= GEMELO DIGITAL ============================= -->
-<section class="seccion" id="gemelo">
+<!-- ============================= SENSORES ============================= -->
+<section class="seccion" id="sensores">
   <div class="contenedor">
-    <p class="etiqueta rev">04 · Marco conceptual</p>
-    <h2 class="titulo-seccion rev">Qué es —y qué no es— un gemelo digital</h2>
+    <p class="etiqueta rev">04 · Sensores</p>
+    <h2 class="titulo-seccion rev">Los tres sensores del nodo de monitoreo</h2>
     <p class="bajada rev">
-      Un gemelo digital es la representación virtual de un activo físico, conectada a él por un flujo de
-      datos, que se mantiene sincronizada con su estado real a lo largo de su vida útil. Un modelo 3D
-      bonito no lo es. Un BIM sin datos en vivo es un modelo. Un tablero de gráficas sin modelo detrás es
-      telemetría. La palabra «gemelo» exige que el modelo cambie cuando la estructura cambia.
+      El prototipo integra tres módulos dedicados: uno para inclinación y caída, otro para vibración
+      súbita o trepidación, y una unidad inercial de seis grados de libertad para el monitoreo vibratorio
+      completo. Juntos cubren los dos movimientos que interesan a la estructura: el lento —desplome,
+      inclinación, pérdida de aplomo— y el rápido —vibración natural, impactos y golpes—.
     </p>
 
     <div class="grid grid-3" style="margin-top:2.2rem">
       <article class="tarjeta rev">
-        <h3 style="font-size:1.06rem">Entidad física</h3>
-        <p>El puente, o la maqueta instrumentada durante el desarrollo.</p>
+        <img src="assets/img/sensor-inclinacion-sw520d.svg"
+             alt="Módulo sensor de inclinación y caída SW-520D (Tecneu)"
+             style="width:100%;max-width:220px;margin:0 auto 1.1rem">
+        <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Inclinación y caída</span>
+        <h3 style="font-size:1.08rem">SW-520D · sensor de inclinación</h3>
+        <p><strong style="color:#fff">Cómo funciona:</strong> en su interior hay una cápsula con una esfera de metal libre. Cuando el módulo se inclina más allá de un ángulo de umbral, la esfera rueda, cierra el circuito y cambia la salida digital <span style="font-family:var(--f-mono);color:var(--azul-200)">DO</span>. Un potenciómetro ajusta la sensibilidad del disparo.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Qué aporta:</strong> detecta de inmediato una diagonal que se afloja y cuelga, un apoyo que cede o el inicio de un desplome, aunque la vibración no haya cambiado todavía. Es la red de seguridad del nodo.</p>
       </article>
+
       <article class="tarjeta rev">
-        <h3 style="font-size:1.06rem">Modelo virtual</h3>
-        <p>Modelo geométrico y estructural con propiedades de rigidez, masa y condiciones de apoyo.</p>
+        <img src="assets/img/sensor-vibracion-sw420.svg"
+             alt="Módulo sensor de vibración súbita SW-420 NC"
+             style="width:100%;max-width:220px;margin:0 auto 1.1rem">
+        <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">Vibración súbita</span>
+        <h3 style="font-size:1.08rem">SW-420 · sensor de vibración NC</h3>
+        <p><strong style="color:#fff">Cómo funciona:</strong> un resorte metálico descansa sobre un contacto que normalmente está cerrado (<span style="font-family:var(--f-mono);color:var(--azul-200)">NC</span>). Cuando el módulo recibe una vibración o un golpe, el resorte tiembla, abre y cierra el contacto y genera pulsos en la salida <span style="font-family:var(--f-mono);color:var(--azul-200)">DO</span>, contables y medibles por el microcontrolador.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Qué aporta:</strong> registra las trepidaciones súbitas —un impacto, la caída de un elemento, un evento de tráfico pesado— que anteceden o acompañan a un daño. Sirve de disparo para guardar la lectura del MPU-6050 en el instante crítico.</p>
       </article>
+
       <article class="tarjeta rev">
-        <h3 style="font-size:1.06rem">Conexión de datos</h3>
-        <p>Los sensores que alimentan el modelo, y las decisiones que regresan al mundo físico.</p>
+        <img src="assets/img/sensor-mpu6050.svg"
+             alt="Módulo acelerómetro y giróscopo de 3 ejes MPU-6050 (6 grados de libertad)"
+             style="width:100%;max-width:220px;margin:0 auto 1.1rem">
+        <span style="display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#061825;background:var(--ambar);border-radius:100px;padding:.3rem .7rem;margin-bottom:.8rem">6 grados de libertad</span>
+        <h3 style="font-size:1.08rem">MPU-6050 · acelerómetro y giróscopo</h3>
+        <p><strong style="color:#fff">Cómo funciona:</strong> combina en un solo chip un acelerómetro MEMS de tres ejes y un giróscopo de tres ejes: seis grados de libertad. El microcontrolador los lee por <span style="font-family:var(--f-mono);color:var(--azul-200)">I²C</span> y fusiona ambas señales para obtener aceleración lineal, velocidad angular y orientación en tiempo real.</p>
+        <p style="margin-top:.7rem"><strong style="color:#fff">Qué aporta:</strong> es la fuente principal de la medida vibratoria: con la aceleración muestreada a frecuencia estable se calcula la FFT y se obtiene la frecuencia natural del primer modo, la magnitud que baja al fallar un elemento. El giróscopo refuerza la detección de giros e inclinación instantánea.</p>
       </article>
     </div>
-
-    <h3 class="rev" style="margin-top:3rem;font-size:1.5rem">Niveles de madurez · hasta dónde llega el proyecto</h3>
-    <p class="bajada rev" style="margin-bottom:1.4rem">Haga clic en cada nivel. Llegar al nivel 2 de forma demostrable es un resultado sólido para una etapa estatal; prometer el nivel 5 sin evidencia es la manera más rápida de perder credibilidad.</p>
-
-    <div class="niveles rev">
-      <button class="nivel" aria-expanded="false" aria-controls="niv-1">
-        <span class="nivel__n">1</span>
-        <span class="nivel__t"><b>Descriptivo</b><span>¿Cuál es el estado actual?</span></span>
-        <span class="nivel__e ok">Alcanzado</span>
-      </button>
-      <div class="nivel__det" id="niv-1">El sistema reporta las magnitudes medidas y su evolución: frecuencias, temperatura, reacciones en apoyos. Es el punto de partida y se alcanza con holgura con el nodo ESP32 y el tablero en red local.</div>
-
-      <button class="nivel" aria-expanded="false" aria-controls="niv-2">
-        <span class="nivel__n">2</span>
-        <span class="nivel__t"><b>Diagnóstico</b><span>¿Por qué está así y dónde está el problema?</span></span>
-        <span class="nivel__e meta">Objetivo estatal</span>
-      </button>
-      <div class="nivel__det" id="niv-2">Es el objetivo declarado del proyecto y lo que demuestra el simulador de esta página: el modelo se recalibra contra la medición y señala qué elemento perdió rigidez y en qué proporción. La prueba empírica es el nivel 4 del protocolo 9.4, donde el sistema distingue el retiro de D2 del retiro de D4.</div>
-
-      <button class="nivel" aria-expanded="false" aria-controls="niv-3">
-        <span class="nivel__n">3</span>
-        <span class="nivel__t"><b>Predictivo</b><span>¿Qué va a pasar y cuándo?</span></span>
-        <span class="nivel__e ok">Parcial</span>
-      </button>
-      <div class="nivel__det" id="niv-3">Alcanzable de forma limitada: con suficiente historia, la tendencia del corrimiento de frecuencia permite extrapolar. Se presenta como capacidad demostrada en escenario controlado, no como promesa de producto.</div>
-
-      <button class="nivel" aria-expanded="false" aria-controls="niv-4">
-        <span class="nivel__n">4</span>
-        <span class="nivel__t"><b>Prescriptivo</b><span>¿Qué conviene hacer al respecto?</span></span>
-        <span class="nivel__e no">Ruta futura</span>
-      </button>
-      <div class="nivel__det" id="niv-4">Recomendación de intervención priorizada según criticidad, costo y ventana de mantenimiento. Requiere integrar el gemelo con la gestión de activos del operador. Se plantea como horizonte, no como alcance actual.</div>
-
-      <button class="nivel" aria-expanded="false" aria-controls="niv-5">
-        <span class="nivel__n">5</span>
-        <span class="nivel__t"><b>Autónomo</b><span>El sistema actúa sin intervención humana</span></span>
-        <span class="nivel__e no">Fuera de alcance</span>
-      </button>
-      <div class="nivel__det" id="niv-5">Fuera de alcance y, en infraestructura crítica, probablemente indeseable. La decisión sobre una estructura con personas encima debe quedar en manos de un responsable identificable.</div>
-    </div>
-
-    <h3 class="rev" style="margin-top:3rem;font-size:1.5rem">Limitaciones que el equipo declara primero</h3>
-    <p class="bajada rev" style="margin-bottom:1.4rem">Un jurado técnico valora más que se reconozcan estos límites a que se escondan.</p>
-    <div class="grid grid-2 rev">
-      <article class="tarjeta">
-        <h3 style="font-size:1.05rem">Poca sensibilidad al daño local pequeño</h3>
-        <p>El primer modo de una estructura grande puede cambiar menos del 1 % ante una grieta localizada. <b style="color:var(--azul-200)">Mitigación:</b> medir varios modos y usar formas modales, no solo frecuencias.</p>
-      </article>
-      <article class="tarjeta">
-        <h3 style="font-size:1.05rem">Fuerte sensibilidad a la temperatura</h3>
-        <p>La variación térmica diaria puede alterar la frecuencia tanto o más que un daño incipiente. <b style="color:var(--azul-200)">Mitigación:</b> construir la línea base como función de la temperatura, no como un número único.</p>
-      </article>
-      <article class="tarjeta">
-        <h3 style="font-size:1.05rem">No unicidad de la solución inversa</h3>
-        <p>Distintas combinaciones de pérdida de rigidez producen el mismo corrimiento. <b style="color:var(--azul-200)">Mitigación:</b> más nodos reducen la ambigüedad; mientras tanto, reportar confianza y no certeza.</p>
-      </article>
-      <article class="tarjeta">
-        <h3 style="font-size:1.05rem">Necesita una línea base de estructura sana</h3>
-        <p>En un puente existente que ya podría estar dañado no hay histórico. <b style="color:var(--azul-200)">Mitigación:</b> modelo teórico y simetría, comparando entre sí elementos equivalentes.</p>
-      </article>
-    </div>
-
-    <h3 class="rev" style="margin-top:3rem;font-size:1.5rem">Referencias de campo</h3>
-    <div class="tabla-caja rev">
-      <table>
-        <thead><tr><th>Estructura</th><th>País</th><th>Qué aporta como antecedente</th></tr></thead>
-        <tbody>
-          <tr><td>Puente Tsing Ma</td><td>Hong Kong</td><td>Uno de los sistemas de monitoreo permanente más extensos y antiguos, con cientos de sensores integrados desde su construcción.</td></tr>
-          <tr><td>Queensferry Crossing</td><td>Escocia</td><td>Instrumentado desde el diseño, concebido para gestión de activos a largo plazo.</td></tr>
-          <tr><td>Puente del Puerto de Sídney</td><td>Australia</td><td>Instrumentación masiva de elementos secundarios y detección de daño mediante aprendizaje automático.</td></tr>
-          <tr><td>Viaducto de Millau</td><td>Francia</td><td>Monitoreo de comportamiento bajo viento y temperatura.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="nota rev">
-      El patrón común: los proyectos donde el monitoreo se diseñó junto con la estructura son los que funcionan bien.
-      El hueco de mercado está en instrumentar estructuras que ya existen y que nunca se pensaron para ser monitoreadas.
-      Ahí es donde vive VIGÍA. <em>Las cifras de cada caso conviene verificarlas en fuente primaria antes de citarlas en público.</em>
-    </p>
   </div>
 </section>
 
@@ -495,7 +433,7 @@
         <b>Opción A</b><span>Nodo SHM sobre armadura</span>
       </button>
       <button class="pestana destacado" role="tab" aria-selected="true" aria-controls="pan-b" id="tab-b">
-        <b>Opción B</b><span>Gemelo digital ligero</span>
+        <b>Opción B</b><span>Nodo con diagnóstico</span>
       </button>
       <button class="pestana" role="tab" aria-selected="false" aria-controls="pan-c" id="tab-c">
         <b>Opción C</b><span>Probeta con sensor embebido</span>
@@ -509,7 +447,7 @@
           <h3>Concepto</h3>
           <p>Maqueta de puente tipo armadura, de 80 a 120 cm de claro, instrumentada con un nodo ESP32. El nodo muestrea vibración, calcula la FFT a bordo, identifica la frecuencia del primer modo y la compara con una línea base compensada por temperatura. Un elemento diagonal va atornillado en lugar de pegado, para aflojarlo frente al jurado y provocar daño real, medible y reversible.</p>
           <p style="margin-top:.9rem"><b style="color:#fff">Qué demuestra:</b> que el sistema mide una propiedad física de la estructura, no un umbral arbitrario; que hay un indicador cuantitativo de daño; que el procesamiento ocurre en el borde.</p>
-          <p style="margin-top:.9rem"><b style="color:var(--ambar)">Debilidad:</b> es un buen proyecto de instrumentación, pero no explota el marco de gemelo digital. Y es, probablemente, lo que harán varios equipos.</p>
+          <p style="margin-top:.9rem"><b style="color:var(--ambar)">Debilidad:</b> es un buen proyecto de instrumentación, pero no explota el paso de diagnóstico. Y es, probablemente, lo que harán varios equipos.</p>
         </div>
         <div class="tarjeta">
           <h3>Perfil</h3>
@@ -517,7 +455,6 @@
           <div class="medidor"><span>Riesgo técnico<b style="color:var(--verde)">Bajo</b></span><i><b data-v="25"></b></i></div>
           <div class="medidor"><span>Riesgo logístico<b style="color:var(--verde)">Bajo</b></span><i><b data-v="20"></b></i></div>
           <div class="medidor"><span>Diferenciación<b style="color:var(--ambar)">Media</b></span><i><b data-v="50"></b></i></div>
-          <div class="medidor"><span>Nivel de gemelo digital<b style="color:#fff">1 a 2</b></span><i><b data-v="35"></b></i></div>
           <p style="margin-top:1rem;font-size:.9rem"><b style="color:#fff">Demo en vivo repetible:</b> sí</p>
         </div>
       </div>
@@ -528,7 +465,7 @@
       <div class="grid grid-2">
         <div class="tarjeta">
           <h3>Concepto <span style="font-size:.7rem;color:var(--azul-200);font-family:var(--f-mono);letter-spacing:.1em">RECOMENDADA</span></h3>
-          <p>Todo lo de la opción A, más la mitad que la convierte en gemelo. Un modelo estructural de la maqueta corre en Python y predice las frecuencias naturales. Al recibir las frecuencias medidas, un algoritmo de calibración ajusta los factores de rigidez de cada grupo de elementos hasta hacer coincidir el modelo con la medición. El resultado se pinta sobre un modelo tridimensional en el navegador: los elementos con pérdida estimada se colorean, con su porcentaje.</p>
+          <p>Todo lo de la opción A, más la mitad que la convierte en diagnóstico: identificar qué elemento cambió. Un modelo estructural de la maqueta corre en Python y predice las frecuencias naturales. Al recibir las frecuencias medidas, un algoritmo de calibración ajusta los factores de rigidez de cada grupo de elementos hasta hacer coincidir el modelo con la medición. El resultado se pinta sobre un modelo tridimensional en el navegador: los elementos con pérdida estimada se colorean, con su porcentaje.</p>
           <p style="margin-top:.9rem">Cuando alguien afloja la diagonal, el tablero no dice «alerta». Dice: <em style="color:#fff">rigidez de la diagonal D4 estimada en 78 por ciento del valor de referencia, confianza media.</em> Y colorea esa barra.</p>
           <p style="margin-top:.9rem"><b style="color:#fff">Qué demuestra:</b> el ciclo cerrado completo —físico, sensor, modelo, diagnóstico, visualización—. Localización del daño, no solo detección.</p>
           <p style="margin-top:.9rem"><b style="color:var(--ambar)">Plan B:</b> si la calibración automática no converge, se sustituye por comparación contra un catálogo de firmas espectrales precalculadas. Resuelve el mismo problema, es robusto y sigue siendo diagnóstico. Se presenta sin disculpas.</p>
@@ -539,7 +476,6 @@
           <div class="medidor"><span>Riesgo técnico<b style="color:var(--ambar)">Medio</b></span><i><b data-v="50"></b></i></div>
           <div class="medidor"><span>Riesgo logístico<b style="color:var(--verde)">Bajo</b></span><i><b data-v="20"></b></i></div>
           <div class="medidor"><span>Diferenciación<b style="color:var(--verde)">Alta</b></span><i><b data-v="92"></b></i></div>
-          <div class="medidor"><span>Nivel de gemelo digital<b style="color:#fff">2 a 3</b></span><i><b data-v="70"></b></i></div>
           <p style="margin-top:1rem;font-size:.9rem"><b style="color:#fff">Aprovecha el perfil del equipo:</b> completo. Arquitectura produce el modelo tridimensional y la visualización; Ciberseguridad se encarga del canal de datos, la autenticación de los nodos y la integridad del registro histórico; Gestión Empresarial toma el modelo de negocio del activo de información.</p>
         </div>
       </div>
@@ -561,7 +497,6 @@
           <div class="medidor"><span>Riesgo técnico<b style="color:var(--ambar)">Medio</b></span><i><b data-v="50"></b></i></div>
           <div class="medidor"><span>Riesgo logístico<b style="color:var(--rojo)">Alto</b></span><i><b data-v="88"></b></i></div>
           <div class="medidor"><span>Diferenciación<b style="color:var(--verde)">Alta</b></span><i><b data-v="88"></b></i></div>
-          <div class="medidor"><span>Nivel de gemelo digital<b style="color:#fff">1</b></span><i><b data-v="20"></b></i></div>
           <p style="margin-top:1rem;font-size:.9rem"><b style="color:#fff">Demo en vivo repetible:</b> no</p>
         </div>
       </div>
@@ -685,7 +620,7 @@
           <span class="fase__quien">Arquitectura + asesor</span>
         </button>
         <div class="fase__det"><div>
-          <p>El paso que convierte el proyecto en gemelo digital. Una rutina recibe las frecuencias medidas y busca los factores de rigidez por grupo de elementos que minimizan el error entre modelo y medición. Con una armadura pequeña, una optimización sencilla basta.</p>
+          <p>El paso que convierte el proyecto en un sistema de diagnóstico. Una rutina recibe las frecuencias medidas y busca los factores de rigidez por grupo de elementos que minimizan el error entre modelo y medición. Con una armadura pequeña, una optimización sencilla basta.</p>
           <p><strong style="color:var(--ambar)">Plan B, a decidir en la semana 7:</strong> si la calibración no converge de forma confiable, sustituirla por comparación de firmas. Se precalcula el vector de frecuencias para cada escenario de daño, se guarda como catálogo, y el sistema clasifica la medición asignándola al escenario más cercano.</p>
         </div></div>
       </div>
@@ -758,11 +693,11 @@
           <tr><td>1</td><td>Diagonal D4 aflojada un cuarto de vuelta</td><td>Pequeño</td><td>Umbral de detección</td></tr>
           <tr><td>2</td><td>Diagonal D4 aflojada una vuelta completa</td><td>Moderado</td><td>Progresión monótona</td></tr>
           <tr><td>3</td><td>Diagonal D4 retirada</td><td>Grande</td><td>Respuesta ante daño severo</td></tr>
-          <tr><td>4</td><td>Diagonal D2 retirada, D4 restituida</td><td>Grande, firma distinta</td><td><strong style="color:var(--azul-200)">Localización</strong> — nivel 2 de madurez, demostrado</td></tr>
+          <tr><td>4</td><td>Diagonal D2 retirada, D4 restituida</td><td>Grande, firma distinta</td><td><strong style="color:var(--azul-200)">Localización</strong> — demostrado</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="nota rev">Los cinco niveles están reproducidos en el <a href="#simulador">simulador</a> de esta página como escenarios preconfigurados.</p>
+    <p class="nota rev">Los cinco escenarios están reproducidos en el <a href="#simulador">simulador</a> de esta página como escenarios preconfigurados.</p>
   </div>
 </section>
 
@@ -772,14 +707,14 @@
     <p class="etiqueta rev">08 · Modelo de negocio</p>
     <h2 class="titulo-seccion rev">No vende sensores: vende un activo de información</h2>
     <p class="bajada rev">
-      Un sistema de telemetría es reemplazable por otro más barato. Un gemelo digital calibrado con cinco
+      Un sistema de telemetría es reemplazable por otro más barato. Un sistema de monitoreo calibrado con cinco
       años de historia de <em>ese</em> puente específico no lo es, porque el valor está en los datos
       acumulados y en el modelo ya ajustado. Eso es retención de cliente real, y sostiene el modelo de suscripción.
     </p>
 
     <div class="tabla-caja rev" style="margin-top:2rem">
       <table>
-        <thead><tr><th>Propuesta como telemetría</th><th>Propuesta como gemelo digital</th></tr></thead>
+        <thead><tr><th>Propuesta como telemetría</th><th>Propuesta como sistema de diagnóstico</th></tr></thead>
         <tbody>
           <tr><td style="color:var(--txt-3);font-weight:400">Sensores que detectan anomalías y generan alertas</td><td>Un modelo estructural vivo del puente, calibrado con datos reales y actualizado de forma continua</td></tr>
           <tr><td style="color:var(--txt-3);font-weight:400">Vende hardware más una suscripción</td><td>Vende un activo de información que gana valor con cada año de datos acumulados</td></tr>
@@ -866,8 +801,6 @@
           <tr><td>Normas N-PRY-CAR</td><td>Proyecto de carreteras, incluye estructuras y puentes</td><td>Marco de diseño nacional aplicable</td></tr>
           <tr><td>AASHTO LRFD Bridge Design Specifications</td><td>Especificación internacional de diseño de puentes</td><td>Contexto de estados límite y cargas</td></tr>
           <tr><td>Normas Técnicas Complementarias</td><td>Diseño estructural local, reglamento de construcciones aplicable</td><td>Marco reglamentario en obra urbana</td></tr>
-          <tr><td>The Gemini Principles · CDBB, 2018</td><td>Nueve principios para gemelos digitales de infraestructura: propósito, confianza y función</td><td>Marco conceptual del enfoque de gemelo digital</td></tr>
-          <tr><td>ISO/IEC 30173</td><td>Conceptos y terminología de gemelos digitales</td><td>Sustento de definiciones</td></tr>
         </tbody>
       </table>
     </div>
@@ -885,7 +818,7 @@
     <h2 class="titulo-seccion rev">Cinco personas, tres disciplinas</h2>
     <p class="bajada rev">
       Tres integrantes de Arquitectura, una de Gestión Empresarial y una de Ciberseguridad. Esa mezcla es
-      justamente la de un equipo de gemelo digital de infraestructura: quien entiende la estructura y su
+      justamente la de un equipo de monitoreo estructural: quien entiende la estructura y su
       representación tridimensional, quien construye el caso de negocio, y quien asegura la integridad y el
       resguardo de los datos. <strong>El valor de VIGÍA no está en el circuito: está en la interpretación
       estructural del dato y en la plataforma que lo entrega.</strong>
@@ -945,7 +878,7 @@
       <a class="tarjeta rev doc" href="docs/VIGIA_dossier_estatal.md">
         <span class="doc__ico">MD</span>
         <span><b style="color:#fff;display:block">Dossier técnico para la etapa estatal</b>
-        <span style="color:var(--txt-2);font-size:.9rem">Once secciones: diagnóstico, marco de gemelo digital, opciones de prototipo, ruta de construcción, protocolo de validación, marco normativo y guion de demostración.</span></span>
+        <span style="color:var(--txt-2);font-size:.9rem">Once secciones: diagnóstico, opciones de prototipo, ruta de construcción, protocolo de validación, marco normativo y guion de demostración.</span></span>
       </a>
       <a class="tarjeta rev doc" href="docs/memoria-etapa-local.pdf">
         <span class="doc__ico">PDF</span>
@@ -1006,7 +939,7 @@
           <li><a href="#problema">El problema</a></li>
           <li><a href="#solucion">Cómo funciona</a></li>
           <li><a href="#simulador">Simulador interactivo</a></li>
-          <li><a href="#gemelo">Gemelo digital</a></li>
+          <li><a href="#sensores">Sensores</a></li>
           <li><a href="#prototipo">Prototipo</a></li>
           <li><a href="#validacion">Validación</a></li>
         </ul>
