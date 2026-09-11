@@ -136,53 +136,6 @@
     });
   });
 
-  /* ---------- Calculadora de materiales ---------- */
-  const bloques = $$('.bloque');
-  const fmt = n => '$' + n.toLocaleString('es-MX');
-
-  function recalcular() {
-    let total = 0;
-    const lineas = [], activos = new Set();
-    bloques.forEach(b => {
-      const cb = b.querySelector('input[type=checkbox]');
-      const costo = +b.dataset.costo;
-      if (cb.checked) { total += costo; lineas.push([b.dataset.nombre, costo]); activos.add(b.dataset.clave); }
-      b.style.opacity = cb.checked ? '1' : '.5';
-    });
-
-    const margen = Math.round(total * 0.15);
-    $('#calc-cifra').textContent = fmt(total + margen);
-    $('#calc-lineas').innerHTML =
-      lineas.map(([n, c]) => `<li>${n}<b>${fmt(c)}</b></li>`).join('') +
-      `<li>Subtotal<b>${fmt(total)}</b></li>` +
-      `<li class="margen">Imprevistos (15 %)<b>${fmt(margen)}</b></li>`;
-
-    // Qué alcance del dossier corresponde a los bloques elegidos
-    const tiene = k => activos.has(k);
-    const nucleo = ['electronica', 'alimentacion', 'estructura', 'encapsulado', 'red'].every(tiene);
-    let alcance;
-    if (!tiene('electronica') || !tiene('estructura')) alcance = 'Configuración incompleta';
-    else if (nucleo) alcance = 'Opción B — Gemelo digital ligero';
-    else alcance = 'Opción A — Nodo SHM';
-    if (alcance !== 'Configuración incompleta') {
-      if (tiene('computo')) alcance += ' · cómputo dedicado';
-      if (tiene('opcionC')) alcance += ' · evidencia de la opción C';
-    }
-    $('#calc-alcance').textContent = alcance;
-  }
-
-  bloques.forEach(b => {
-    const cb = b.querySelector('input[type=checkbox]');
-    const cab = b.querySelector('.bloque__cab');
-    cb.addEventListener('change', recalcular);
-    cab.addEventListener('click', e => {
-      // Clic en el nombre despliega el detalle; clic en la casilla activa o desactiva
-      if (e.target.closest('.marca') || e.target.tagName === 'LABEL') return;
-      b.querySelector('.bloque__lista').classList.toggle('abierta');
-    });
-  });
-  recalcular();
-
   /* ---------- Año del pie ---------- */
   const y = $('#anio');
   if (y) y.textContent = new Date().getFullYear();

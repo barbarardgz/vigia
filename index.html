@@ -131,7 +131,6 @@
 
     <div class="cifras">
       <div class="cifra"><b data-contar="24" data-suf="/7">0</b><span>Monitoreo continuo frente a inspección visual periódica</span></div>
-      <div class="cifra"><b data-contar="5.3" data-dec="1" data-pre="$" data-suf="k">0</b><span>Pesos de costo estimado del prototipo recomendado</span></div>
       <div class="cifra"><b data-contar="4">0</b><span>Modos de vibración medidos para localizar el daño</span></div>
       <div class="cifra"><b data-contar="2" data-pre="Nivel ">0</b><span>De madurez de gemelo digital: diagnóstico</span></div>
     </div>
@@ -514,7 +513,6 @@
         </div>
         <div class="tarjeta">
           <h3>Perfil</h3>
-          <div class="medidor"><span>Costo estimado<b style="color:#fff">$4,500 MXN</b></span><i><b data-v="45"></b></i></div>
           <div class="medidor"><span>Semanas de trabajo<b style="color:#fff">4 a 5</b></span><i><b data-v="50"></b></i></div>
           <div class="medidor"><span>Riesgo técnico<b style="color:var(--verde)">Bajo</b></span><i><b data-v="25"></b></i></div>
           <div class="medidor"><span>Riesgo logístico<b style="color:var(--verde)">Bajo</b></span><i><b data-v="20"></b></i></div>
@@ -537,7 +535,6 @@
         </div>
         <div class="tarjeta">
           <h3>Perfil</h3>
-          <div class="medidor"><span>Costo estimado<b style="color:#fff">$6,500 MXN</b></span><i><b data-v="65"></b></i></div>
           <div class="medidor"><span>Semanas de trabajo<b style="color:#fff">7 a 9</b></span><i><b data-v="85"></b></i></div>
           <div class="medidor"><span>Riesgo técnico<b style="color:var(--ambar)">Medio</b></span><i><b data-v="50"></b></i></div>
           <div class="medidor"><span>Riesgo logístico<b style="color:var(--verde)">Bajo</b></span><i><b data-v="20"></b></i></div>
@@ -560,7 +557,6 @@
         </div>
         <div class="tarjeta">
           <h3>Perfil</h3>
-          <div class="medidor"><span>Costo estimado<b style="color:#fff">$3,000 MXN</b></span><i><b data-v="30"></b></i></div>
           <div class="medidor"><span>Semanas de trabajo<b style="color:#fff">5 + 4 de curado</b></span><i><b data-v="90"></b></i></div>
           <div class="medidor"><span>Riesgo técnico<b style="color:var(--ambar)">Medio</b></span><i><b data-v="50"></b></i></div>
           <div class="medidor"><span>Riesgo logístico<b style="color:var(--rojo)">Alto</b></span><i><b data-v="88"></b></i></div>
@@ -586,155 +582,10 @@
   </div>
 </section>
 
-<!-- ============================= MATERIALES ============================= -->
-<section class="seccion" id="materiales">
-  <div class="contenedor">
-    <p class="etiqueta rev">06 · Presupuesto</p>
-    <h2 class="titulo-seccion rev">Calculadora de materiales</h2>
-    <p class="bajada rev">
-      Active o desactive cada bloque para ver cómo cambia la inversión. Haga clic en el nombre del bloque
-      para desplegar el detalle de componentes. Precios de referencia al menudeo en México, a mediados de 2026.
-    </p>
-
-    <div class="calc rev" style="margin-top:2.2rem">
-      <div class="calc__grupos">
-
-        <div class="bloque" data-costo="2035" data-nombre="Electrónica" data-clave="electronica">
-          <div class="bloque__cab">
-            <label><input type="checkbox" checked><i class="marca"></i></label>
-            <b>Electrónica · núcleo del sistema</b>
-            <span class="monto">$2,035</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>2 × ESP32 DevKit V1 — $440</li>
-            <li>2 × Acelerómetro MPU6050 — $170</li>
-            <li>1 × Acelerómetro ADXL345 (menor ruido) — $160</li>
-            <li>2 × Celda de carga 5 kg + HX711 — $420</li>
-            <li>1 × Sensor de temperatura y humedad SHT31 — $185</li>
-            <li>1 × Lector microSD + tarjeta 16 GB — $180</li>
-            <li>1 × Pantalla OLED 1.3" I2C — $130</li>
-            <li>LED RGB, buzzer, resistencias, protoboard, cable — $350</li>
-          </ul>
-        </div>
-
-        <div class="bloque" data-costo="580" data-nombre="Alimentación" data-clave="alimentacion">
-          <div class="bloque__cab">
-            <label><input type="checkbox" checked><i class="marca"></i></label>
-            <b>Alimentación autónoma</b>
-            <span class="monto">$580</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>2 × Batería 18650 + portapila — $240</li>
-            <li>2 × Módulo de carga TP4056 con protección — $110</li>
-            <li>1 × Panel solar 6 V 1 W — $140</li>
-            <li>2 × Convertidor elevador MT3608 — $90</li>
-          </ul>
-        </div>
-
-        <div class="bloque" data-costo="1230" data-nombre="Estructura de la maqueta" data-clave="estructura">
-          <div class="bloque__cab">
-            <label><input type="checkbox" checked><i class="marca"></i></label>
-            <b>Estructura de la maqueta</b>
-            <span class="monto">$1,230</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>4 × Solera de aluminio 1/2" × 1/16" (3 m) — $440</li>
-            <li>1 × Tornillería M3 con tuerca y arandela (100 pzas) — $180</li>
-            <li>1 × Placa MDF 6 mm — $220</li>
-            <li>2 × Ángulo de aluminio para apoyos — $190</li>
-            <li>Pintura, lija y consumibles de acabado — $200</li>
-          </ul>
-        </div>
-
-        <div class="bloque" data-costo="1050" data-nombre="Encapsulado y montaje" data-clave="encapsulado">
-          <div class="bloque__cab">
-            <label><input type="checkbox" checked><i class="marca"></i></label>
-            <b>Encapsulado y montaje profesional</b>
-            <span class="monto">$1,050</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>2 × Gabinete plástico IP65 — $420</li>
-            <li>6 × Prensaestopas PG7 — $150</li>
-            <li>1 × Cable apantallado 4 hilos (5 m) — $180</li>
-            <li>2 × Placa perforada o PCB a medida — $300</li>
-          </ul>
-        </div>
-
-        <div class="bloque" data-costo="420" data-nombre="Red local" data-clave="red">
-          <div class="bloque__cab">
-            <label><input type="checkbox" checked><i class="marca"></i></label>
-            <b>Red local independiente</b>
-            <span class="monto">$420</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>1 × Router WiFi portátil — $420</li>
-            <li><em>Requisito no negociable: el sistema debe funcionar sin internet.</em></li>
-          </ul>
-        </div>
-
-        <div class="bloque" data-costo="2400" data-nombre="Cómputo dedicado" data-clave="computo">
-          <div class="bloque__cab">
-            <label><input type="checkbox"><i class="marca"></i></label>
-            <b>Cómputo dedicado (opcional)</b>
-            <span class="monto">$2,400</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>1 × Raspberry Pi 4 (2 GB) — $2,400</li>
-            <li><em>Verificar disponibilidad en el Tec antes de comprar: una laptop del equipo cumple la misma función.</em></li>
-          </ul>
-        </div>
-
-        <div class="bloque" data-costo="1300" data-nombre="Opción C · probetas" data-clave="opcionC">
-          <div class="bloque__cab">
-            <label><input type="checkbox"><i class="marca"></i></label>
-            <b>Opción C · evidencia complementaria</b>
-            <span class="monto">$1,300</span>
-          </div>
-          <ul class="bloque__lista">
-            <li>Cemento, arena, grava y moldes cilíndricos — $500</li>
-            <li>Galgas extensométricas 350 Ω (paquete de 10) — $450</li>
-            <li>Resina epóxica y encapsulante — $350</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <aside class="calc__total">
-        <h4>Inversión estimada</h4>
-        <div class="calc__cifra" id="calc-cifra">$0<small>MXN</small></div>
-        <p style="font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;color:var(--azul-200);margin:0" id="calc-alcance">—</p>
-        <ul class="calc__lineas" id="calc-lineas"></ul>
-        <p class="nota" style="margin-top:1.2rem;border-color:rgba(90,147,212,.4)">
-          Conviene comprar repuestos: dos ESP32 y dos MPU6050 de más cuestan unos $600 y evitan que un
-          componente quemado a tres días del evento arruine meses de trabajo.
-        </p>
-      </aside>
-    </div>
-
-    <h3 class="rev" style="margin-top:3rem;font-size:1.5rem">Los tres costos que no hay que confundir</h3>
-    <p class="bajada rev" style="margin-bottom:1.3rem">Presentar una sola cifra para «el costo del sistema» es el error que más se nota. Son tres cosas distintas.</p>
-    <div class="tabla-caja rev">
-      <table>
-        <thead><tr><th>Concepto</th><th class="num">Orden de magnitud</th><th>Qué es</th></tr></thead>
-        <tbody>
-          <tr><td>Prototipo demostrativo</td><td class="num">$5,000 – $9,000 MXN</td><td>La maqueta instrumentada que se lleva a la etapa estatal</td></tr>
-          <tr><td>Nodo comercial de campo</td><td class="num">$8,000 – $25,000 MXN</td><td>Por nodo: sensor de grado industrial, gabinete IP66, alimentación autónoma, comunicación</td></tr>
-          <tr><td>Instalación completa en un puente</td><td class="num">$300,000 MXN – varios millones</td><td>Según claro, número de nodos, obra civil de instalación y años de servicio contratados</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="nota rev">
-      El argumento de valor está en el contraste: un sistema SHM comercial llave en mano se cotiza a nivel
-      internacional en decenas o cientos de miles de dólares por estructura. Mismo principio físico de medición,
-      un orden de magnitud menos de costo.
-    </p>
-  </div>
-</section>
-
 <!-- ============================= RUTA DE CONSTRUCCIÓN ============================= -->
 <section class="seccion seccion--alt" id="ruta">
   <div class="contenedor">
-    <p class="etiqueta rev">07 · Ruta de construcción</p>
+    <p class="etiqueta rev">06 · Ruta de construcción</p>
     <h2 class="titulo-seccion rev">Nueve fases, cinco personas</h2>
     <p class="bajada rev">Las fases se paralelizan entre las integrantes. Haga clic en cada una para ver el detalle y quién la sostiene.</p>
 
@@ -867,7 +718,7 @@
 <!-- ============================= VALIDACIÓN ============================= -->
 <section class="seccion" id="validacion">
   <div class="contenedor">
-    <p class="etiqueta rev">08 · Validación</p>
+    <p class="etiqueta rev">07 · Validación</p>
     <h2 class="titulo-seccion rev">Un prototipo sin protocolo es una maqueta</h2>
     <p class="bajada rev">Con protocolo, es un instrumento. Seis pruebas, cada una respondiendo a una pregunta que el jurado va a hacer.</p>
 
@@ -918,7 +769,7 @@
 <!-- ============================= NEGOCIO ============================= -->
 <section class="seccion seccion--alt" id="negocio">
   <div class="contenedor">
-    <p class="etiqueta rev">09 · Modelo de negocio</p>
+    <p class="etiqueta rev">08 · Modelo de negocio</p>
     <h2 class="titulo-seccion rev">No vende sensores: vende un activo de información</h2>
     <p class="bajada rev">
       Un sistema de telemetría es reemplazable por otro más barato. Un gemelo digital calibrado con cinco
@@ -988,7 +839,7 @@
 <!-- ============================= CONTEXTO Y NORMATIVA ============================= -->
 <section class="seccion" id="contexto">
   <div class="contenedor">
-    <p class="etiqueta rev">10 · Contexto mexicano</p>
+    <p class="etiqueta rev">09 · Contexto mexicano</p>
     <h2 class="titulo-seccion rev">Dónde se inserta VIGÍA en el sistema que ya existe</h2>
 
     <div class="grid grid-2" style="margin-top:2.2rem">
@@ -1030,7 +881,7 @@
 <!-- ============================= EQUIPO ============================= -->
 <section class="seccion seccion--alt" id="equipo">
   <div class="contenedor">
-    <p class="etiqueta rev">11 · Equipo</p>
+    <p class="etiqueta rev">10 · Equipo</p>
     <h2 class="titulo-seccion rev">Cinco personas, tres disciplinas</h2>
     <p class="bajada rev">
       Tres integrantes de Arquitectura, una de Gestión Empresarial y una de Ciberseguridad. Esa mezcla es
@@ -1086,7 +937,7 @@
 <!-- ============================= DOCUMENTOS ============================= -->
 <section class="seccion" id="documentos">
   <div class="contenedor">
-    <p class="etiqueta rev">12 · Documentación</p>
+    <p class="etiqueta rev">11 · Documentación</p>
     <h2 class="titulo-seccion rev">Documentos del proyecto</h2>
     <p class="bajada rev">Material entregado en la etapa local y dossier técnico de preparación para la etapa estatal.</p>
 
@@ -1094,7 +945,7 @@
       <a class="tarjeta rev doc" href="docs/VIGIA_dossier_estatal.md">
         <span class="doc__ico">MD</span>
         <span><b style="color:#fff;display:block">Dossier técnico para la etapa estatal</b>
-        <span style="color:var(--txt-2);font-size:.9rem">Doce secciones: diagnóstico, marco de gemelo digital, opciones de prototipo, lista de materiales, ruta de construcción, protocolo de validación, marco normativo y guion de demostración.</span></span>
+        <span style="color:var(--txt-2);font-size:.9rem">Once secciones: diagnóstico, marco de gemelo digital, opciones de prototipo, ruta de construcción, protocolo de validación, marco normativo y guion de demostración.</span></span>
       </a>
       <a class="tarjeta rev doc" href="docs/memoria-etapa-local.pdf">
         <span class="doc__ico">PDF</span>
